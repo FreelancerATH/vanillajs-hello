@@ -14,16 +14,46 @@
   </head>
   <body>
     <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
+      <h1 class="mt-5">Hello Rigo porfavor genera una excusa!</h1>
+      <button onclick="generarFrase()" class="btn btn-primary">
+        Generar Excusa
+      </button>
       <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
+      <p class="alert alert-warning mt-4" id="Frase"></p>
       <div class="fixed-bottom p-4">
         Made with ❤️ by
         <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
       </div>
     </div>
+    <script>
+      // Arreglos de palabras
+      let who = ["El perro", "Mi abuela", "El carter", "Mi pájaro"];
+      let action = ["comió", "orinó", "aplastó", "rompió"];
+      let what = ["mi tarea", "mi celular", "la carta"];
+      let when = [
+        "después de clases",
+        "cuando yo estaba dormido",
+        "mientras yo hacía ejercicio",
+        "durante mi almuerzo",
+        "mientras yo rezaba"
+      ];
+
+      // Función para obtener un elemento aleatorio de un arreglo
+      function obtenerElementoAleatorio(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      // Función para generar una frase
+      function generarFrase() {
+        const quien = obtenerElementoAleatorio(who);
+        const accion = obtenerElementoAleatorio(action);
+        const que = obtenerElementoAleatorio(what);
+        const cuando = obtenerElementoAleatorio(when);
+
+        const frase = `${quien} ${accion} ${que} ${cuando}.`;
+
+        document.getElementById("Frase").innerText = frase;
+      }
+    </script>
   </body>
 </html>
